@@ -44,6 +44,9 @@ handleChange =({ target }) => {
     this.setState({
       userAprove: true,
     });
+    this.setState({
+      load: false,
+    });
   }
 
   render() {
