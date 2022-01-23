@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getUser } from '../services/userAPI';
 import Loading from '../pages/Loading';
+import { Link } from 'react-router-dom';
 
 export default class header extends Component {
   constructor(props) {
@@ -32,11 +33,15 @@ export default class header extends Component {
   render() {
     const { loads, userName } = this.state;
     return (
+      
       <div>
         { loads ? (
           <Loading />
         ) : (
           <header data-testid="header-component">
+            <Link to="/search" data-testid="link-to-search">Search</Link>
+            <Link to="/favorites" data-testid="link-to-favorites">Search</Link>
+            <Link to="/profile" data-testid="link-to-profile">Search</Link>
             <div data-testid="header-user-name">
               {userName}
             </div>
