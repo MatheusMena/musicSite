@@ -6,7 +6,7 @@ export default class Album extends Component {
     return (
       <div data-testid="page-album">
         <Header />
-        Album
+        Album , criar lista de musica
       </div>
     );
   }
