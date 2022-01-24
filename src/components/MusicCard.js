@@ -1,9 +1,33 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import { addSong } from '../services/favoriteSongsAPI';
+import Loading from '../pages/Loading';
 
 export default class MusicCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ischecked: false,
+      load: false,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick = async () => {
+    this.setState({
+      ischecked: true,
+      load: true,
+    });
+    const { trackId } = this.props;
+    await addSong(trackId);
+    this.setState({
+      load: false,
+    });
+  }
+
   render() {
-    const { trackName, previewUrl } = this.props;
+    const { trackName, previewUrl, trackId } = this.props;
+    const { ischecked, load } = this.state;
     return (
       <div data-testid="audio-component">
         { trackName }
@@ -14,6 +38,17 @@ export default class MusicCard extends Component {
           <code>audio</code>
           .
         </audio>
+        <div>
+          Favorita
+          {load ? <Loading /> : null}
+          <input
+            type="checkbox"
+            data-testid={ `checkbox-music-${trackId}` }
+            onClick={ this.handleClick }
+            checked={ ischecked }
+          />
+
+        </div>
       </div>);
   }
 }
@@ -21,4 +56,5 @@ export default class MusicCard extends Component {
 MusicCard.propTypes = {
   trackName: propTypes.string.isRequired,
   previewUrl: propTypes.string.isRequired,
+  trackId: propTypes.string.isRequired,
 };
