@@ -39,8 +39,8 @@ export default class header extends Component {
         ) : (
           <header data-testid="header-component">
             <Link to="/search" data-testid="link-to-search">Search</Link>
-            <Link to="/favorites" data-testid="link-to-favorites">Search</Link>
-            <Link to="/profile" data-testid="link-to-profile">Search</Link>
+            <Link to="/favorites" data-testid="link-to-favorites">favorites</Link>
+            <Link to="/profile" data-testid="link-to-profile">profile</Link>
             <div data-testid="header-user-name">
               {userName}
             </div>
