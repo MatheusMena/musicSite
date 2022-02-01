@@ -40,6 +40,8 @@ export default class MusicCard extends Component {
     });
   }
 
+  // feito com referencia de https://github.com/tryber/sd-017-project-trybetunes/commit/60bbb8b39a412c2e07470f4bd805533696a27154
+
   // if (favoriteList.filter((item) => item === trackId).length > 0)
   handleClick = async () => {
     const { ischecked } = this.state;

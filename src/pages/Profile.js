@@ -12,6 +12,7 @@ export default class Profile extends Component {
       userName: '',
       email: '',
       description: '',
+      image: '',
     };
     this.handleProfile = this.handleProfile.bind(this);
   }
@@ -37,23 +38,18 @@ export default class Profile extends Component {
 
  render() {
    const { userName, email, description, image, load } = this.state;
+   if (load) { return <Loading />; }
    return (
      <div data-testid="page-profile">
        <Header />
-       {load ? (<Loading />
-       ) : (
-         <div>
-           <div>
-             <p>{email}</p>
-             <p>{description}</p>
-             <p>{userName}</p>
-             <Link to="/profile/edit">Editar perfil</Link>
-             <img src={ image } data-testid="profile-image" alt="profile-pic" />
-           </div>
+       <div>
+         <p>{email}</p>
+         <p>{description}</p>
+         <p>{userName}</p>
+         <Link to="/profile/edit">Editar perfil</Link>
+         <img src={ image } data-testid="profile-image" alt="profile-pic" />
+       </div>
 
-         </div>
-       )}
-       ;
      </div>
    );
  }
