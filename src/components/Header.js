@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from '../pages/Loading';
+import './header.css';
 
 export default class header extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ export default class header extends Component {
   render() {
     const { loads, userName } = this.state;
     return (
-      <div>
+      <div className="headers">
         { loads ? (
           <Loading />
         ) : (

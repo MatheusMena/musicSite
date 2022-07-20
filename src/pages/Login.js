@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import Button from '../components/Button';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import '../index.css';
+import '../components/pageLogin.css';
+import image from '../components/image.svg';
 
 export default class Login extends Component {
   constructor(props) {
@@ -52,9 +56,10 @@ handleChange =({ target }) => {
   render() {
     const { isDisabled, loginName, load, userAprove } = this.state;
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="pageLogin">
         {userAprove ? <Redirect to="/search" /> : null}
-        <form>
+        <form className="carForm">
+          <img src={ image } alt="Logo" className="imgLogo" />
           {load ? <Loading /> : null}
           <input
             type="text"
@@ -63,14 +68,21 @@ handleChange =({ target }) => {
             value={ loginName }
             onChange={ this.handleChange }
           />
-          <button
+          {/* <button
             type="button"
             data-testid="login-submit-button"
             onClick={ this.handleSubmitValidation }
             disabled={ isDisabled }
           >
             Entrar
-          </button>
+          </button> */}
+          <Button
+            disabled={ isDisabled }
+            dataId="login-submit-button"
+            text="Entrar"
+            functionButton={ this.handleSubmitValidation }
+          />
+
         </form>
       </div>
     );

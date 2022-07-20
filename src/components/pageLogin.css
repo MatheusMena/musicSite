@@ -1,0 +1,55 @@
+/* 
+
+
+ */
+
+
+.pageLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background: url('../../src/images/loginBack.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+}
+
+
+@keyframes pulse {
+    0% {
+      background-color: #22aaaf;
+    }
+    25% {
+      background-color: #137f83;
+    }
+    50% {
+      background-color: #085255;
+    }
+    75% {
+      background-color: #116669;
+    }
+    100% {
+      background-color: #22aaaf;
+    }
+  }
+
+.carForm {
+   background-color: #085255;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   animation: pulse 10s infinite;
+   border-radius: 150px;
+   width: 56%;
+   height: 55%;
+}
+
+.imgLogo {
+    margin: 0px;
+    width: 200px;
+}
+
